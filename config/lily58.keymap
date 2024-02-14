@@ -9,6 +9,15 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
+    combos {
+        compatible = "zmk,combos";
+
+        toggle-gaming {
+            bindings = <&tog 3>;
+            key-positions = <29 50 51 42 53>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -64,12 +73,22 @@
             bindings = <
 &trans     &trans  &trans  &trans   &trans   &trans                     &trans          &trans          &trans        &trans           &trans    &trans
 &kp GRAVE  &kp N1  &kp N2  &kp N3   &kp N4   &kp N5                     &kp N6          &kp N7          &kp N8        &kp N9           &kp N0    &trans
-&kp F1     &kp F2  &kp F3  &kp F4   &kp F5   &kp F6                     &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans    &trans
+&kp F1     &kp F2  &kp F3  &kp F4   &kp F5   &tog 3                     &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans    &trans
 &kp F7     &kp F8  &kp F9  &kp F10  &kp F11  &kp F12  &trans    &trans  &kp KP_PLUS     &kp MINUS       &kp EQUAL     &kp LBKT         &kp RBKT  &kp BSLH
                            &trans   &trans   &trans   &trans    &trans  &trans          &trans          &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+        };
+
+        gaming {
+            bindings = <
+&kp ESCAPE        &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5                                         &trans  &trans  &trans  &trans  &trans  &trans
+&kp TAB           &kp Q         &kp W         &kp E         &kp R         &kp T                                                &trans  &trans  &trans  &trans  &trans  &trans
+&kp LEFT_CONTROL  &kp A         &kp S         &kp D         &kp F         &kp G                                                &trans  &trans  &trans  &trans  &trans  &trans
+&kp LEFT_SHIFT    &kp Z         &kp X         &kp C         &kp V         &kp B         &kp LEFT_BRACKET    &kp RIGHT_BRACKET  &trans  &trans  &trans  &trans  &trans  &trans
+                                              &kp LEFT_ALT  &kp LEFT_GUI  &mo 2         &kp SPACE           &kp BACKSPACE      &trans  &trans  &trans
+            >;
         };
     };
 };

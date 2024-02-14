@@ -12,9 +12,12 @@
     combos {
         compatible = "zmk,combos";
 
-        toggle-gaming {
+        combo_toggle_gaming {
             bindings = <&tog 3>;
-            key-positions = <29 50 51 42 53>;
+            key-positions = <29 25 45 15>;
+            slow-release;
+            require-prior-idle-ms = <250>;
+            timeout-ms = <1000>;
         };
     };
 

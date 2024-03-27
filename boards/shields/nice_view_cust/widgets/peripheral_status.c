@@ -25,6 +25,7 @@ LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
 
 LV_IMG_DECLARE(balloon);
 LV_IMG_DECLARE(mountain);
+LV_IMG_DECLARE(tyger_claws);
 LV_IMG_DECLARE(evangelion_ditherlicious);
 LV_IMG_DECLARE(gengar);
 LV_IMG_DECLARE(rayquaza);
@@ -122,15 +123,18 @@ int zmk_widget_status_init(struct zmk_widget_status *widget, lv_obj_t *parent) {
     lv_obj_t *art = lv_img_create(widget->obj);
     // Generate a random number between 0 and 3
     uint32_t random_number = sys_rand32_get();
-    int random_index = random_number % 4;
+    int random_index = random_number % 5;
+
+    // If you want to specify a specific image, pick the random_index here
+    lv_img_dsc_t *force_set_image = &tyger_claws;
 
     lv_img_dsc_t *selected_image;
     switch (random_index) {
         case 0:
-            selected_image = &gengar;
+            selected_image = &balloon;
             break;
         case 1:
-            selected_image = &rayquaza;
+            selected_image = &mountain;
             break;
         case 2:
             selected_image = &evangelion2;
@@ -138,12 +142,17 @@ int zmk_widget_status_init(struct zmk_widget_status *widget, lv_obj_t *parent) {
         case 3:
             selected_image = &evangelion_ditherlicious;
             break;
+        case 4:
+            selected_image = &tyger_claws;
         default:
             // Handle error or fallback option here
-            selected_image = &rayquaza; // Fallback to rayquaza in case of an error
+            selected_image = &balloon; // Fallback to balloon in case of an error
             break;
     }
-    lv_img_set_src(art, selected_image);
+    // Random image below. Comment/uncomment
+    // lv_img_set_src(art, selected_image);
+    // Force set image below. Comment/uncomment
+    lv_img_set_src(art, force_set_image);
     lv_obj_align(art, LV_ALIGN_TOP_LEFT, 0, 0);
 
     sys_slist_append(&widgets, &widget->node);

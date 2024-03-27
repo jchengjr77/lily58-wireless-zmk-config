@@ -232,7 +232,7 @@ const lv_img_dsc_t mountain = {
 #define LV_ATTRIBUTE_IMG_TYGER_CLAWS
 #endif
 
-const LV_ATTRIBUTE_MEM_ALIGN LV_ATTRIBUTE_LARGE_CONST LV_ATTRIBUTE_IMG_TYGER_CLAWS uint8_t art_map[] = {
+const LV_ATTRIBUTE_MEM_ALIGN LV_ATTRIBUTE_LARGE_CONST LV_ATTRIBUTE_IMG_TYGER_CLAWS uint8_t tyger_claws_map[] = {
   0xb5, 0xa8, 0xa4, 0xff, 	/*Color of index 0*/
   0x80, 0x55, 0x6f, 0xff, 	/*Color of index 1*/
 
@@ -385,7 +385,7 @@ const lv_img_dsc_t art = {
   .header.w = 68,
   .header.h = 140,
   .data_size = 1268,
-  .data = art_map,
+  .data = tyger_claws_map,
 };
 
 #ifndef LV_ATTRIBUTE_IMG_EVANGELION_DITHERLICIOUS
